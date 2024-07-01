@@ -6,16 +6,15 @@
 #include <string.h>
 
 // #define ARRAY_SIZE(a) (sizeof(a) / sizeof(a[0]))
-#define CTRLD 4
+// #define CTRLD 4
 
-int mainU() {
+int mainU()
+{
   ITEM **my_items;
   int c;
   MENU *my_menu;
   int i;
   ITEM *cur_item;
-
-  char *file_names[file_count];
 
   /* Initialize curses */
   initscr();
@@ -27,7 +26,7 @@ int mainU() {
   // file_count = ARRAY_SIZE(file_names);
   my_items = (ITEM **)calloc(file_count + 1, sizeof(ITEM *));
   for (i = 0; i < file_count; ++i)
-    my_items[i] = new_item(file_names[i], file_names[i]);
+    my_items[i] = new_item(file_infos.name, file_infos.name);
   my_items[file_count] = (ITEM *)NULL;
 
   my_menu = new_menu((ITEM **)my_items);
@@ -36,12 +35,14 @@ int mainU() {
   menu_opts_off(my_menu, O_ONEVALUE);
 
   mvprintw(LINES - 3, 0, "Use <SPACE> to select or unselect an item.");
-  mvprintw(LINES - 2, 0, "<ENTER> to see presently selected items(F1 to Exit)");
+  mvprintw(LINES - 2, 0, "<ENTER> to see presently selected items(F1 to Exit; CTRL+c also works :) )");
   post_menu(my_menu);
   refresh();
 
-  while ((c = getch()) != KEY_F(1)) {
-    switch (c) {
+  while ((c = getch()) != KEY_F(1))
+  {
+    switch (c)
+    {
     case KEY_DOWN:
       menu_driver(my_menu, REQ_DOWN_ITEM);
       break;
@@ -59,7 +60,8 @@ int mainU() {
       items = menu_items(my_menu);
       temp[0] = '\0';
       for (i = 0; i < item_count(my_menu); ++i)
-        if (item_value(items[i]) == TRUE) {
+        if (item_value(items[i]) == TRUE)
+        {
           strcat(temp, item_name(items[i]));
           strcat(temp, " ");
         }
@@ -67,7 +69,8 @@ int mainU() {
       clrtoeol();
       mvprintw(20, 0, temp);
       refresh();
-    } break;
+    }
+    break;
     }
   }
 

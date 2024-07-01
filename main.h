@@ -8,3 +8,4 @@ extern int main();
 extern DIR *dir;
 extern struct dirent *ent;
 extern int file_count;
+extern struct file_info file_infos;
