@@ -56,5 +56,12 @@
   "C_Cpp_Runner.showCompilationTime": false,
   "C_Cpp_Runner.useLinkTimeOptimization": false,
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
-  "C_Cpp.default.compilerPath": "/usr/bin/gcc"
+  "C_Cpp.default.compilerPath": "/usr/bin/gcc",
+  "makefile.launchConfigurations": [
+    {
+      "cwd": "/home/angel/programming/C/ncdu-project",
+      "binaryPath": "/home/angel/programming/C/ncdu-project/nbb",
+      "binaryArgs": []
+    }
+  ]
 }

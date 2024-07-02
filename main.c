@@ -17,16 +17,23 @@ struct directory_entry {
   uint32_t file_size_bytes;
   struct directory_entry *next_entry;
 };
+struct file_info
+{
+  char name[256];
+  int size_bytes;
+};
 
-int main() {
-
+int main()
+{
   dir = opendir("."); // open current directory
 
   if (dir ==
-      NULL) { // if the dir variable returns null it means there is a problem
+      NULL)
+  { // if the dir variable returns null it means there is a problem
     printf("Error opening directory.\n");
     return 1; // exit the program with exit code 1
   }
+
 
   printf("DT_REG %d\n", DT_REG);
 
@@ -51,6 +58,14 @@ int main() {
     } else if (ent->d_type == DT_DIR) {
       printf("Dir: %s\n", ent->d_name);
     }
+
+  while ((ent = readdir(dir)) != NULL)
+  {
+    file_count++;
+    struct file_info file_infos;
+    strncpy(file_infos.name, ent->d_name, sizeof(file_infos.name));
+    file_infos.size_bytes = ent->d_ino;
+    main;
   }
 
   printf("\nFiles in directory:\n");
@@ -62,8 +77,9 @@ int main() {
 
   mainU();
 
-  if (closedir(dir) == -1) { // if the program fails closing the directory it
-                             // means there is a problem
+  if (closedir(dir) == -1)
+  { // if the program fails closing the directory it
+    // means there is a problem
     printf("Error closing directory.\n");
     return 1; // exit the program with exit code 1
   }
