@@ -24,6 +24,7 @@ int mainU()
 
   /* Initialize items */
   // file_count = ARRAY_SIZE(file_names);
+  // todo fix segfault - don't allocate size of POINTER - allocate size of struct.
   my_items = (ITEM **)calloc(file_count + 1, sizeof(ITEM *));
   for (i = 0; i < file_count; ++i)
     my_items[i] = new_item(file_infos.name, file_infos.name);

@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": true,
       "externalConsole": false,
-      "cwd": "/home/angel/programming/C/ncdu-project/",
-      "program": "/home/angel/programming/C/ncdu-project/nbb",
+      "cwd": "${workspaceFolder}/",
+      "program": "${workspaceFolder}/nbb",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
@@ -18,7 +18,8 @@
           "text": "-enable-pretty-printing",
           "ignoreFailures": true
         }
-      ]
+      ],
+      "preLaunchTask": "make"
     }
   ]
 }
