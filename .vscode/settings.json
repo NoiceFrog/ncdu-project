@@ -59,8 +59,8 @@
   "C_Cpp.default.compilerPath": "/usr/bin/gcc",
   "makefile.launchConfigurations": [
     {
-      "cwd": "/home/angel/programming/C/ncdu-project",
-      "binaryPath": "/home/angel/programming/C/ncdu-project/nbb",
+      "cwd": "/home/angel/programming/C/ncdu-project/test2",
+      "binaryPath": "/home/angel/programming/C/ncdu-project/test2/test2",
       "binaryArgs": []
     }
   ]

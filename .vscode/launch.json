@@ -2,14 +2,38 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "(gdb) Launch",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "enter program name, for example ${workspaceFolder}/a.out",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          "description": "Set Disassembly Flavor to Intel",
+          "text": "-gdb-set disassembly-flavor intel",
+          "ignoreFailures": true
+        }
+      ]
+    },
+    {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",
       "args": [],
       "stopAtEntry": true,
       "externalConsole": false,
-      "cwd": "/home/angel/programming/C/ncdu-project/",
-      "program": "/home/angel/programming/C/ncdu-project/nbb",
+      "cwd": "/home/angel/programming/C/ncdu-project/test2",
+      "program": "/home/angel/programming/C/ncdu-project/test2/test2",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
